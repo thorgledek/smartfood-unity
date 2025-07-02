@@ -5,11 +5,16 @@
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
+[Mm]emoryCaptures/
+[Uu]serSettings/
 
-# Asset Store tools
+# Unity Asset Store tools
 Assets/AssetStoreTools*
 
-# User-specific
+# Crash logs
+sysinfo.txt
+
+# User-specific files
 *.csproj
 *.unityproj
 *.sln
@@ -18,18 +23,15 @@ Assets/AssetStoreTools*
 *.user
 *.userprefs
 
-# OS / IDE junk
+# IDE-specific
+.vscode/
+.idea/
+
+# OS junk files
 .DS_Store
 Thumbs.db
 
-# Rider & VSCode
-.idea/
-.vscode/
-
-# Builds
+# Build outputs
 *.apk
 *.aab
 *.exe
-
-# Crash logs
-sysinfo.txt
