@@ -1,0 +1,35 @@
+# === UNITY ===
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# Asset Store tools
+Assets/AssetStoreTools*
+
+# User-specific
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+
+# OS / IDE junk
+.DS_Store
+Thumbs.db
+
+# Rider & VSCode
+.idea/
+.vscode/
+
+# Builds
+*.apk
+*.aab
+*.exe
+
+# Crash logs
+sysinfo.txt
