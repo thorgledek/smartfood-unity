@@ -13,6 +13,7 @@ Assets/AssetStoreTools*
 
 # Crash logs
 sysinfo.txt
+.vs/
 
 # User-specific files
 *.csproj
@@ -35,3 +36,4 @@ Thumbs.db
 *.apk
 *.aab
 *.exe
+.vs/

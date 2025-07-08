@@ -336,7 +336,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 170179484}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 474065662}
+        m_TargetAssemblyTypeName: PindahScene, Assembly-CSharp
+        m_MethodName: LoadToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Simulation
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &170179484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6293852062866206699, guid: c0a473cadd89a7f4aac616602aaca71b, type: 3}
+  m_Sprite: {fileID: 1296689656750838873, guid: f1bf395be3128f54788ef515497d9821, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -689,7 +701,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5489647316660717944, guid: 5d988902e4d04514fb52f69b952c2834, type: 3}
+  m_Sprite: {fileID: -8693452427352452989, guid: 365fd6b050c5f7f4aaf3b36800ee0021, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -821,7 +833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3995322230033707713, guid: dda4394beddbab548afe9cfc587a8b99, type: 3}
+  m_Sprite: {fileID: -8932086633346044489, guid: 556e3a5ac9c96de49bda62b4211cc327, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -943,7 +955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6833512201553254139, guid: e0c3acfc3d228d1409c51342a860527e, type: 3}
+  m_Sprite: {fileID: -1768854372134492381, guid: e37942196da5bdc49a87f9265c521b88, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -995,7 +1007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31.75, y: 215.5}
+  m_AnchoredPosition: {x: -33.7, y: 181.8}
   m_SizeDelta: {x: 168.35, y: 19.63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1081571665
@@ -1094,7 +1106,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1159425079
@@ -1425,7 +1437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8468627181101608570, guid: 69a1746c6e0b6a44fa6ac6724afacd63, type: 3}
+  m_Sprite: {fileID: 9178404710356813448, guid: 317cbad620f7679418da18725a61cbd3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1524,7 +1536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2040423209}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 474065662}
+        m_TargetAssemblyTypeName: PindahScene, Assembly-CSharp
+        m_MethodName: LoadToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: survive
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2040423209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1545,7 +1569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -983046534694479767, guid: 50f5800e2e18f4146b3da9a0c02134ef, type: 3}
+  m_Sprite: {fileID: 6841150434027684380, guid: 5f9b9fda24078c241a618ec35cd37450, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
