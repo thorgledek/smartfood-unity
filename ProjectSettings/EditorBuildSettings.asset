@@ -26,6 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/explanation.unity
     guid: 1a913bcfc983c5e4a8b64b9281064fd7
+  - enabled: 1
+    path: Assets/Scenes/payment.unity
+    guid: 0deafade24ae9f247beffc71a488e8ea
+  - enabled: 1
+    path: Assets/Scenes/Simulation.unity
+    guid: 319d94505ec892043a753166a4765fc7
+  - enabled: 1
+    path: Assets/Scenes/survive.unity
+    guid: 17e2b15f3875f504992835654e382c2e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

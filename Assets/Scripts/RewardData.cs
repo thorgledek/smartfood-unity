@@ -9,6 +9,7 @@ public class RewardData
     public int require_points;
     public int stock;
 }
+
 [System.Serializable]
 public class RewardList
 {

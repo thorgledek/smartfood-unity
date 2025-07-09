@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -29,9 +28,13 @@ public class Login : MonoBehaviour
         if (responseText.Trim() == "Berhasil")
         {
             Debug.Log("Login Berhasil!");
-            PlayerPrefs.SetString("LoggedInUsername", inputUsername.text);
-            PlayerPrefs.Save(); 
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu Utama");
+            PlayerPrefs.SetString("username", inputUsername.text);  // Konsisten pakai key "username"
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("Menu Utama");
+        }
+        else
+        {
+            Debug.LogWarning("Login gagal: " + responseText);
         }
     }
 
@@ -44,14 +47,9 @@ public class Login : MonoBehaviour
 #endif
         if (string.IsNullOrEmpty(inputUsername.text) || string.IsNullOrEmpty(inputPassword.text))
         {
-            Debug.Log("Username or Password is empty!");
+            Debug.LogWarning("Username or Password is empty!");
             return;
         }
         StartCoroutine(ieLogin());
-
     }
-
-
 }
-
-

@@ -57,6 +57,12 @@ public class RewardUIController : MonoBehaviour
 
     public void UpdateUI()
     {
+        if (balanceText == null || progressBar == null || remainingText == null || messageText == null)
+        {
+            Debug.LogError("UI references belum diisi di Inspector!");
+            return;
+        }
+
         balanceText.text = $"{currentPoints}";
 
         float percent = (float)currentPoints / maxPoints;
@@ -75,6 +81,7 @@ public class RewardUIController : MonoBehaviour
             remainingText.gameObject.SetActive(true);
         }
     }
+
 
     public void AddPoints(int points)
     {
