@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class WelcomeUser : MonoBehaviour
@@ -27,7 +27,7 @@ public class WelcomeUser : MonoBehaviour
     {
         if (welcomeUsernameDisplay != null)
         {
-            string username = PlayerPrefs.GetString("LoggedInUsername", "User");
+            string username = PlayerPrefs.GetString("username", "User"); // ✅ pakai key yang benar
             welcomeUsernameDisplay.text = "Welcome, " + username;
         }
     }
@@ -45,7 +45,7 @@ public class WelcomeUser : MonoBehaviour
 
     private void ShowWelcomePopupWithUsername()
     {
-        string username = PlayerPrefs.GetString("LoggedInUsername", "Pengguna");
+        string username = PlayerPrefs.GetString("username", "Pengguna"); // ✅ pakai key yang benar
         string greeting = GetGreetingBasedOnTime();
 
         if (welcomePopupPanel != null && welcomeMessageText != null)

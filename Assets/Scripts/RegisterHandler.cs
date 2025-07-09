@@ -1,46 +1,41 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; 
-using TMPro; 
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class RegisterHandler : MonoBehaviour
 {
-    
     public TMP_InputField inputUsername;
     public TMP_InputField inputPassword;
     public TMP_InputField inputAge;
     public TMP_InputField inputHeight;
     public TMP_InputField inputWeight;
 
-    
-    public TextMeshProUGUI statusMessageText; 
-    public GameObject registerButton; 
+    public TextMeshProUGUI statusMessageText;
+    public GameObject registerButton;
 
-    
-    private const string REGISTER_URL = "http://localhost/LoginFolder/Register.php"; 
+    private const string REGISTER_URL = "http://localhost/LoginFolder/Register.php";
 
     void Start()
     {
-        
         if (statusMessageText != null)
         {
             statusMessageText.text = "";
         }
     }
 
-    
     public void OnRegisterButtonClick()
     {
-        
         if (registerButton != null)
         {
             registerButton.GetComponent<Button>().interactable = false;
         }
 
-        
-        if (string.IsNullOrEmpty(inputUsername.text) || string.IsNullOrEmpty(inputPassword.text) ||
-            string.IsNullOrEmpty(inputAge.text) || string.IsNullOrEmpty(inputHeight.text) ||
+        if (string.IsNullOrEmpty(inputUsername.text) ||
+            string.IsNullOrEmpty(inputPassword.text) ||
+            string.IsNullOrEmpty(inputAge.text) ||
+            string.IsNullOrEmpty(inputHeight.text) ||
             string.IsNullOrEmpty(inputWeight.text))
         {
             DisplayStatusMessage("Lengkapi Kolom Diatas!", Color.red);
@@ -48,7 +43,6 @@ public class RegisterHandler : MonoBehaviour
             return;
         }
 
-        // Pastikan Age, Height, Weight adalah angka
         if (!int.TryParse(inputAge.text, out int ageValue) ||
             !float.TryParse(inputHeight.text, out float heightValue) ||
             !float.TryParse(inputWeight.text, out float weightValue))
@@ -58,7 +52,12 @@ public class RegisterHandler : MonoBehaviour
             return;
         }
 
-        StartCoroutine(SendRegistrationRequest(inputUsername.text, inputPassword.text, ageValue, heightValue, weightValue));
+        StartCoroutine(SendRegistrationRequest(
+            inputUsername.text,
+            inputPassword.text,
+            ageValue,
+            heightValue,
+            weightValue));
     }
 
     IEnumerator SendRegistrationRequest(string username, string password, int age, float height, float weight)
@@ -66,11 +65,12 @@ public class RegisterHandler : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("username", username);
         form.AddField("password", password);
-        form.AddField("age", age.ToString()); // Kirim sebagai string
-        form.AddField("height", height.ToString()); // Kirim sebagai string
-        form.AddField("weight", weight.ToString()); // Kirim sebagai string
+        form.AddField("age", age.ToString());
+        form.AddField("height", height.ToString());
+        form.AddField("weight", weight.ToString());
 
-        using (UnityEngine.Networking.UnityWebRequest webRequest = UnityEngine.Networking.UnityWebRequest.Post(REGISTER_URL, form))
+        using (UnityEngine.Networking.UnityWebRequest webRequest =
+            UnityEngine.Networking.UnityWebRequest.Post(REGISTER_URL, form))
         {
             yield return webRequest.SendWebRequest();
 
@@ -82,18 +82,25 @@ public class RegisterHandler : MonoBehaviour
             }
             else
             {
-                string responseText = webRequest.downloadHandler.text;
+                string responseText = webRequest.downloadHandler.text.Trim();
                 Debug.Log("Server Response: " + responseText);
 
                 if (responseText.Contains("Registrasi Berhasil!"))
                 {
                     DisplayStatusMessage("Registrasi Berhasil!", Color.green);
+
+                    // Simpan username ke PlayerPrefs agar dianggap login
+                    PlayerPrefs.SetString("username", username);
+                    PlayerPrefs.Save();
+
+                    // Kosongkan form
                     inputUsername.text = "";
                     inputPassword.text = "";
                     inputAge.text = "";
                     inputHeight.text = "";
                     inputWeight.text = "";
 
+                    // Pindah ke scene utama
                     SceneManager.LoadScene("Menu Utama");
                 }
                 else if (responseText.Contains("Username sudah terdaftar."))
@@ -104,20 +111,9 @@ public class RegisterHandler : MonoBehaviour
                 {
                     DisplayStatusMessage("Registrasi gagal: " + responseText, Color.red);
                 }
-
-
-                if (responseText.Contains("Registrasi Berhasil!")) // Jangan taruh dua kali!
-                {
-                    DisplayStatusMessage("Registrasi Berhasil!", Color.green);
-
-                    PlayerPrefs.SetString("LoggedInUsername", username);
-                    PlayerPrefs.Save();
-
-                    SceneManager.LoadScene("Menu Utama");
-                }
-
             }
         }
+
         ReenableRegisterButton();
     }
 
@@ -137,6 +133,4 @@ public class RegisterHandler : MonoBehaviour
             registerButton.GetComponent<Button>().interactable = true;
         }
     }
-
-
 }

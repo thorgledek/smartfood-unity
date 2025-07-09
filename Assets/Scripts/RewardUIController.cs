@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -27,7 +27,13 @@ public class RewardUIController : MonoBehaviour
 
     IEnumerator FetchPointsFromDatabase()
     {
-        string username = PlayerPrefs.GetString("LoggedInUsername", "Unknown");
+        string username = PlayerPrefs.GetString("username", "Unknown");
+
+        if (string.IsNullOrEmpty(username) || username == "Unknown")
+        {
+            Debug.LogWarning("Username tidak ditemukan di PlayerPrefs.");
+            yield break;
+        }
 
         WWWForm form = new WWWForm();
         form.AddField("username", username);
@@ -82,7 +88,6 @@ public class RewardUIController : MonoBehaviour
         }
     }
 
-
     public void AddPoints(int points)
     {
         currentPoints += points;
@@ -100,7 +105,7 @@ public class RewardUIController : MonoBehaviour
         UpdateUI();
     }
 
-    // Fungsi untuk menampilkan panel kuis (dipanggil saat tombol PointBalance diklik)
+    // Fungsi untuk menampilkan panel kuis
     public void ShowQuizPopup()
     {
         if (quizPopupPanel != null)
@@ -109,7 +114,6 @@ public class RewardUIController : MonoBehaviour
         }
     }
 
-    // Fungsi untuk menyembunyikan panel kuis
     public void HideQuizPopup()
     {
         if (quizPopupPanel != null)
